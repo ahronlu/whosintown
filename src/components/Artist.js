@@ -1,22 +1,32 @@
-import React from "react";
-import { Image } from "react-bootstrap";
+import React, { useState } from "react";
+import { Image, Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import EventItem from "./EventItem";
 
 const Artist = ({ artist }) => {
   const { events } = useSelector((state) => state.event);
+  const [showImage, setShowImage] = useState(false);
 
   return (
     <div>
       {artist.name ? (
         <div className="d-flex align-items-center rounded border my-3">
           <Image
+            onClick={() => setShowImage(true)}
             src={artist.thumb_url}
             alt={artist.name}
             title={artist.name}
             width="150px"
             className="mx-3"
           />
+          <Modal show={showImage} onHide={() => setShowImage(false)}>
+            <Modal.Header closeButton>
+              <Modal.Title>{artist.name}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Image src={artist.image_url} alt={artist.name} fluid />
+            </Modal.Body>
+          </Modal>
           <a
             href={artist.url}
             target="_blank"
