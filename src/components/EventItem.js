@@ -9,9 +9,9 @@ const EventItem = ({ event }) => {
       <Card.Body>
         <Card.Title>{event.venue.name}</Card.Title>
         <Card.Text>
-          {moment(event.datetime).format("MMMM Do YYYY, h:mm")}
-          <br />
           {event.venue.city}, {event.venue.country}
+          <br />
+          {moment(event.datetime).format("MMMM Do YYYY, h:mm")}
         </Card.Text>
         <Link to={`/events/${event.id}`}>
           Go to event <i className="fas fa-arrow-right"></i>

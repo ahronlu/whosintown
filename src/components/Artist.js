@@ -13,10 +13,26 @@ const Artist = ({ artist }) => {
           <Image
             src={artist.thumb_url}
             alt={artist.name}
+            title={artist.name}
             width="150px"
             className="mx-3"
           />
-          <h3>{artist.name}</h3>
+          <a
+            href={artist.url}
+            target="_blank"
+            rel="noreferrer"
+            title={`${artist.name}'s bandsintown page`}
+          >
+            <h3>{artist.name}</h3>
+          </a>
+          <a
+            href={artist.facebook_page_url}
+            target="_blank"
+            rel="noreferrer"
+            title={`${artist.name}'s facebook page`}
+          >
+            <i className="fab fa-facebook-square"></i>
+          </a>
         </div>
       ) : null}
       {events &&
