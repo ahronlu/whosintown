@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Image, Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import EventItem from "./EventItem";
